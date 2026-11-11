@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-libre: #f2f3f0;
+  --color-desconocido: #cdcfcb;
+  --color-pared: #141615;
+  --color-tinta-2: #5e625f;
+  --color-victima: #e1262d;
+  --color-traza: #2a5bd7;
+
+  --font-display: var(--font-doto), ui-monospace, monospace;
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-martian), ui-monospace, SFMono-Regular, monospace;
+
+  /* escala: 13 / 16 / 20 / 28 / 44 / 72 */
+  --text-s13: 13px;
+  --text-s16: 16px;
+  --text-s20: 20px;
+  --text-s28: 28px;
+  --text-s44: 44px;
+  --text-s72: 72px;
+  --text-hero: clamp(64px, 12vw, 176px);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f2f3f0;
+  --foreground: #141615;
+}
+
+html {
+  background: var(--background);
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Foco visible: el rojo también marca el foco del teclado */
+:focus-visible {
+  outline: 2px solid var(--color-victima);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-pared);
+  color: var(--color-libre);
+}
+
+/* Etiquetas de datos: mono, mayúsculas, 11–13 px */
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.font-display-dot {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
