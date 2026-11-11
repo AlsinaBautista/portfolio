@@ -5,6 +5,10 @@ import { hasLocale, locales, siteUrl } from "@/lib/i18n";
 import { site } from "@/content/site";
 import Nav from "@/components/layout/Nav";
 import Footer from "@/components/layout/Footer";
+import SmoothScroll from "@/components/layout/SmoothScroll";
+import OccupancyBackdrop from "@/components/map/OccupancyBackdrop";
+import MissionHud from "@/components/hud/MissionHud";
+import { allProjects } from "@/content/projects";
 import "../globals.css";
 
 type Props = { children: React.ReactNode; params: Promise<{ locale: string }> };
@@ -49,9 +53,12 @@ export default async function LocaleLayout({ children, params }: Props) {
         >
           {t.skip}
         </a>
+        <SmoothScroll />
+        <OccupancyBackdrop />
         <Nav locale={locale} />
         <main id="contenido">{children}</main>
         <Footer locale={locale} />
+        <MissionHud labels={t.hud} total={allProjects.length} />
       </body>
     </html>
   );
