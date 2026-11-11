@@ -36,7 +36,7 @@ export default function MissionHud({ labels, total }: { labels: Labels; total: n
         aria-label={labels.label}
         data-testid="hud"
         data-state={state}
-        className="label pointer-events-none fixed bottom-3 left-3 z-40 w-[min(17rem,calc(100vw-1.5rem))] border border-desconocido bg-libre/90 px-3 py-2.5 text-[11px] text-pared backdrop-blur-sm sm:bottom-5 sm:left-5 sm:text-[12px]"
+        className="label pointer-events-none fixed bottom-3 left-3 z-40 w-max min-w-[16rem] max-w-[calc(100vw-1.5rem)] border border-desconocido bg-libre/90 px-3 py-2.5 text-[11px] text-pared backdrop-blur-sm sm:bottom-5 sm:left-5 sm:text-[12px]"
       >
         <span
           className="relative block h-[1.3em] overflow-hidden"

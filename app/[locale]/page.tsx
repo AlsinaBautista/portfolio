@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { hasLocale, locales } from "@/lib/i18n";
 import { site } from "@/content/site";
-import DecodeText from "@/components/ui/DecodeText";
+import Hero from "@/components/hero/Hero";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -13,16 +13,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   const t = site[locale];
   return (
     <>
-      <section id="hero" data-section="hero" className="relative flex min-h-dvh items-end px-5 pb-16 pt-28 sm:px-10">
-        <div>
-          <h1 className="font-display-dot text-hero">
-            <DecodeText className="block whitespace-nowrap" text={t.hero.first} delay={600} />
-            <DecodeText className="block whitespace-nowrap" text={t.hero.second} delay={750} />
-            <DecodeText className="block whitespace-nowrap" text={t.hero.third} delay={900} />
-          </h1>
-          <p className="mt-6 max-w-md text-s20">{t.hero.tagline}</p>
-        </div>
-      </section>
+      <Hero locale={locale} />
       <section id="tars" data-section="tars" className="min-h-[60dvh] px-5 py-24 sm:px-10">
         <h2 className="title-section">{t.sections.tars}</h2>
       </section>
