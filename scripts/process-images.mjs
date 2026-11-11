@@ -11,7 +11,6 @@ const scratch = process.env.MEDIA_SCRATCH ?? join(process.cwd(), ".scratch"); //
 const out = join(process.cwd(), "public", "media");
 
 const parroquia = join(home, "repo_parroquia/Parroquia/web_parroquia/public/images");
-const promo = join(home, "Documents/Projects/notes-promo/promo/out");
 const galeria = join(home, "Documents/Projects/tutor-dibujos-medicion/galeria");
 const pca = join(home, "Documents/Udesa/inferencia/TP1/pca-montecarlo-pneumonia/figures");
 
