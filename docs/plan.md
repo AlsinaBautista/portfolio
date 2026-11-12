@@ -172,7 +172,7 @@ Este es el riesgo estético. Lo demás queda sobrio para que se luzca.
 | 3 | **Motor para el juego Y**: MCTS + RAVE | FIA TP1 | Tablero | Sin link (repo de la cátedra) |
 | 4 | **PCA y Monte Carlo en PneumoniaMNIST** | Inferencia TP1 | `pca_scatter.png`, `accuracy_vs_k.png` | Repo público |
 | 5 | **Bloons TD en Pygame** | Pensamiento Computacional 2025 (grupal) | Captura de gameplay o sprites | Repo público |
-| 6 | **Semáforo adaptativo**: YOLOv8 + RL multiagente | Personal | `S01_c001_output.mp4` y dashboard | Repo público. Solo si pasa el paso 4b. |
+| 6 | **Semáforo adaptativo**: YOLOv8 + RL multiagente | Personal | Diagrama animado de la arquitectura (el video de salida usa imágenes de un dataset que no permite redistribuirlas) | Repo público. Solo si pasa el paso 4b. |
 
 Se agregan después de v1, sin dejar placeholders visibles en el sitio:
 - **Cadenas de Markov animadas (Manim):** después del 13/11.
@@ -380,7 +380,7 @@ Cada paso termina en un commit.
    4b. **Verificar el semáforo.** Revisar `/Users/bautista/Documents/Projects/semaforo` como máximo unos 20 minutos. Solo lectura: no modificar ese repo.
    - Leer el README y el Makefile.
    - Correr los tests o una demo liviana, sin levantar toda la infraestructura de Docker si es pesada.
-   - **Si funciona:** agregarlo con `S01_c001_output.mp4` recortado y el link al repo público.
+   - **Si funciona:** agregarlo con un diagrama animado de la arquitectura y el link al repo público. No usar imágenes del dataset.
    - **Si no funciona:** dejarlo afuera y explicar por qué en el reporte.
 5. **Sistema global.**
    - `SmoothScroll` (Lenis), `OccupancyBackdrop`, `MissionHud` + `useMissionState` (IntersectionObserver por sección), `useReducedMotion` y `DecodeText`.
