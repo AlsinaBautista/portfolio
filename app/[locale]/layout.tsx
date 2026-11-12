@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { notFound } from "next/navigation";
 import { fontVars } from "@/lib/fonts";
 import { hasLocale, locales, siteUrl } from "@/lib/i18n";
@@ -59,6 +60,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <main id="contenido">{children}</main>
         <Footer locale={locale} />
         <MissionHud labels={t.hud} ids={allProjects.map((p) => p.slug)} />
+        <Analytics />
       </body>
     </html>
   );
