@@ -58,7 +58,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <Nav locale={locale} />
         <main id="contenido">{children}</main>
         <Footer locale={locale} />
-        <MissionHud labels={t.hud} total={allProjects.length} />
+        <MissionHud labels={t.hud} ids={allProjects.map((p) => p.slug)} />
       </body>
     </html>
   );

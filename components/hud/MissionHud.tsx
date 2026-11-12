@@ -4,7 +4,8 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "motion/
 import { useRef } from "react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import MissionController from "./MissionController";
-import { MISSION_STATES, useMissionState } from "./useMissionState";
+import { useEffect } from "react";
+import { MISSION_STATES, markReported, useMissionState } from "./useMissionState";
 
 const BUDGET_S = 600; // presupuesto real de la competencia: 10:00
 
@@ -16,7 +17,8 @@ function fmt(seconds: number) {
 type Labels = { label: string; time: string; reports: string; waiting: string };
 
 /** HUD fijo con el estado de misión, el reloj atado al scroll y el contador de reportes. */
-export default function MissionHud({ labels, total }: { labels: Labels; total: number }) {
+export default function MissionHud({ labels, ids }: { labels: Labels; ids: string[] }) {
+  const total = ids.length;
   const { state, reported } = useMissionState();
   const reduced = useReducedMotion();
   const clockRef = useRef<HTMLSpanElement>(null);
@@ -25,6 +27,11 @@ export default function MissionHud({ labels, total }: { labels: Labels; total: n
   useMotionValueEvent(scrollYProgress, "change", (p) => {
     if (clockRef.current) clockRef.current.textContent = fmt(p * BUDGET_S);
   });
+
+  // al terminar la misión todo lo encontrado quedó reportado
+  useEffect(() => {
+    if (state === "finished") ids.forEach(markReported);
+  }, [state, ids]);
 
   const index = MISSION_STATES.indexOf(state);
   const transition = reduced ? { duration: 0 } : { duration: 0.22, ease: [0.2, 0, 0, 1] as const };
