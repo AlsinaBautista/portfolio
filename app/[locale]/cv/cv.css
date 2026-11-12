@@ -107,13 +107,15 @@
   padding-left: 3.4mm;
   list-style: none;
 }
+/* sangría francesa sin position:relative, para que el texto salga en orden de lectura en el PDF (ATS) */
 .cv-ul li {
-  position: relative;
+  text-indent: -3.4mm;
 }
 .cv-ul li::before {
   content: "–";
-  position: absolute;
-  left: -3.2mm;
+  display: inline-block;
+  width: 3.4mm;
+  text-indent: 0;
 }
 .cv-ul-tight {
   margin-top: 0;
