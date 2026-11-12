@@ -34,12 +34,12 @@ for f in arena_qualification.jpg sim_maze_3_6x6.png real_final_run.gif; do
 done
 
 echo "== Videos de TARS"
-# Loop: 16 s de la toma fija, recortada a la arena (sin el costado donde hay gente)
-encode "$DL/WhatsApp Video 2026-11-06 at 21.42.42.mp4" "$M/tars/loop" \
-  "crop=940:720:340:0,scale=-2:640,fps=30" 27 36 -ss 5 -t 16
-# Corrida completa (5:42) acelerada x16 -> unos 21 s
-encode "$DL/WhatsApp Video 2026-11-06 at 21.45.05.mp4" "$M/tars/run-x16" \
-  "setpts=PTS/16,fps=30" 27 36
+# Primera corrida de clasificación (4/11), vista cenital vertical 464x832.
+RUN1="$DL/WhatsApp Video 2026-11-04 at 13.44.15.mp4"
+# Loop principal: el primer minuto (sale de la base y explora) a 4x -> 15 s
+encode "$RUN1" "$M/tars/run1-loop" "setpts=PTS/4,fps=30" 27 44 -ss 0 -t 60
+# La corrida hasta los 6:30 (después el robot ya no se mueve) a 16x -> unos 24 s
+encode "$RUN1" "$M/tars/run1-x16" "setpts=PTS/16,fps=30" 27 44 -ss 0 -t 390
 # Corrida final real (GIF del repo) convertida a video
 encode "$S/jar/real_final_run.gif" "$M/tars/final-run" "scale=trunc(iw/2)*2:trunc(ih/2)*2" 26 36
 

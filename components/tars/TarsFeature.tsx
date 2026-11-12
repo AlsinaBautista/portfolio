@@ -30,7 +30,7 @@ export default function TarsFeature({ locale }: { locale: Locale }) {
         : `Map of the arena (${t.tars.replayArena}) with the robot's trail in qualification run 2. There are 3 reports, at ${data.reportes.map((r) => r.t.toFixed(1)).join(", ")} seconds, each less than 10 cm from the box's center.`,
   };
   const cover = tars.cover.type === "video" ? tars.cover : null;
-  const photo = tars.gallery.find((m) => m.type === "image" && m.src.includes("arena-qualification"));
+  const photo = tars.gallery.find((m) => m.type === "image" && m.src.includes("start-circle"));
 
   return (
     <section
@@ -73,7 +73,7 @@ export default function TarsFeature({ locale }: { locale: Locale }) {
           ))}
         </ul>
 
-        <Reveal className="mt-10 grid grid-cols-[minmax(0,1.6fr)_minmax(0,1fr)] gap-4">
+        <Reveal className="mt-10 grid grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-4">
           {cover && (
             <figure className="m-0">
               <Video
@@ -95,7 +95,7 @@ export default function TarsFeature({ locale }: { locale: Locale }) {
                 alt={photo.alt[locale]}
                 width={photo.width}
                 height={photo.height}
-                sizes="(min-width: 1024px) 18vw, 40vw"
+                sizes="(min-width: 1024px) 22vw, 50vw"
                 className="h-full w-full object-cover"
               />
             </figure>
