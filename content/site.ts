@@ -283,7 +283,7 @@ const en: Site = {
       degree: "High school",
       place: "Colegio Nuestra Señora de Nueva Pompeya, Necochea",
       period: "graduated 2024",
-      facts: ["Primer escolta (school academic honor)", "Overall GPA 9.84"],
+      facts: ["Primer escolta (flag-escort honor for top grades)", "Overall GPA 9.84"],
     },
     competitions: {
       title: "Competitions",

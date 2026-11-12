@@ -106,7 +106,7 @@ const es: CvData = {
   ],
   competitions: [
     { title: "Olimpíada Matemática Ñandú", bullets: ["Instancia nacional en La Falda, Córdoba, en 2018 y 2019."] },
-    { title: "Olimpíada Matemática Argentina (OMA) y torneos de geometría", bullets: ["Participó durante el secundario."] },
+    { title: "Olimpíada Matemática Argentina (OMA) y torneos de geometría", bullets: ["Participé durante el secundario."] },
     { title: "Torneo Argentino de Programación (TAP)", period: "2025", bullets: ["Participante."] },
   ],
   experience: [
@@ -154,7 +154,7 @@ const en: CvData = {
     {
       title: "Colegio Nuestra Señora de Nueva Pompeya, Necochea",
       lead: "High school, graduated 2024",
-      bullets: ["Primer escolta (school academic honor)", "Overall GPA 9.84"],
+      bullets: ["Primer escolta (flag-escort honor for top grades)", "Overall GPA 9.84"],
     },
   ],
   projects: [
@@ -211,7 +211,7 @@ const en: CvData = {
     { group: "Robotics", items: "ROS 2, Nav2, OpenCV, Gazebo" },
     { group: "Tools", items: "Git, GitHub Actions, Docker, Firebase, pytest" },
   ],
-  languages: "Spanish native · English upper-intermediate (B2, not certified)",
+  languages: "Spanish (native) · English upper-intermediate (B2, not certified)",
   interests: "Football",
 };
 

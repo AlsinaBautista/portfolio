@@ -19,9 +19,7 @@ function Entry({ e, compact = false }: { e: CvEntry; compact?: boolean }) {
         <span>
           {e.title}
           {e.badge ? (
-            <span className="cv-badge">
-              <i aria-hidden /> {e.badge}
-            </span>
+            <span className="cv-badge">{e.badge}</span>
           ) : null}
         </span>
         {e.period ? <span className="cv-mono cv-period">{e.period}</span> : null}
@@ -47,11 +45,11 @@ function Entry({ e, compact = false }: { e: CvEntry; compact?: boolean }) {
 }
 
 /** Hoja A4 del CV: una columna, texto real y secciones en orden de lectura (ATS). Misma maquetación en pantalla e impresión. */
-export default function CvSheet({ locale, hash }: { locale: Locale; hash: string }) {
+export default function CvSheet({ locale }: { locale: Locale }) {
   const d = cv[locale];
   const s = d.sections;
   return (
-    <article className="cv-sheet" lang={locale} data-cv-hash={hash} data-testid="cv-sheet">
+    <article className="cv-sheet" lang={locale} data-testid="cv-sheet">
       <header className="cv-header">
         <h1 className="cv-name">{d.name}</h1>
         <p className="cv-headline">{d.headline}</p>

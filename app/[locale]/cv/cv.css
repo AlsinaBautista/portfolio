@@ -38,21 +38,24 @@
   text-decoration: none;
   border-bottom: 0.4pt solid #5e625f;
 }
+/* El CV es un documento formal: una sola familia (Schibsted Grotesk), jerarquía por peso y tamaño. */
 .cv-mono {
-  font-family: var(--font-mono);
-  font-size: 7.6pt;
+  font-size: 9pt;
   letter-spacing: 0;
+}
+/* tabular-nums solo en fechas: en esta fuente también ensancha los puntos de mails y URLs */
+.cv-period {
+  font-variant-numeric: tabular-nums;
 }
 .cv-header {
   margin-bottom: 2.6mm;
 }
 .cv-name {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 25pt;
-  line-height: 1;
-  letter-spacing: 0.01em;
+  font-weight: 700;
+  font-size: 22pt;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
 }
 .cv-headline {
   margin: 1.6mm 0 0;
@@ -70,10 +73,9 @@
   margin: 3.4mm 0 1.6mm;
   padding-bottom: 0.7mm;
   border-bottom: 0.6pt solid #141615;
-  font-family: var(--font-mono);
-  font-size: 8pt;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  font-size: 8.6pt;
+  font-weight: 700;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 .cv-sheet p {
@@ -124,17 +126,14 @@
   display: inline-flex;
   align-items: center;
   gap: 1mm;
-  margin-left: 2mm;
-  font-family: var(--font-mono);
-  font-size: 7.6pt;
-  font-weight: 500;
+  margin-left: 1.6mm;
+  font-weight: 700;
   white-space: nowrap;
 }
-.cv-badge i {
-  display: inline-block;
-  width: 1.9mm;
-  height: 1.9mm;
-  background: #e1262d;
+.cv-badge::before {
+  content: "·";
+  margin-right: 1.6mm;
+  font-weight: 400;
 }
 .cv-skills {
   margin: 0;
