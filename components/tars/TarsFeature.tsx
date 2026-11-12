@@ -64,7 +64,7 @@ export default function TarsFeature({ locale }: { locale: Locale }) {
         <ul className="grid grid-cols-2 gap-x-6 gap-y-7 border-t border-pared pt-6 sm:grid-cols-3">
           {tars.facts.map((f, i) => (
             <Reveal as="li" key={f.value} delay={0.05 * i} className={i === 0 ? "col-span-2 sm:col-span-3" : ""}>
-              <p className="font-mono text-[28px] font-medium leading-none tracking-tight tabular-nums">{f.value}</p>
+              <p className="font-mono text-[clamp(20px,6vw,28px)] font-medium leading-none tracking-tight tabular-nums whitespace-nowrap">{f.value}</p>
               <p className="label mt-2 max-w-[18rem] text-[11px] normal-case leading-snug tracking-normal text-tinta-2">
                 {f.label[locale]}
               </p>

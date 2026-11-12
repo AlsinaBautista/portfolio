@@ -48,6 +48,8 @@ encode "$PROMO" "$M/academica/promo" "scale=1280:720,fps=30" 30 38
 for t in 14 54 84; do
   ffmpeg -v error -y -ss "$t" -i "$PROMO" -frames:v 1 "$S/frames/academica-$t.png"
 done
+# el primer cuadro del promo es una intro oscura: el póster es el cuadro de la tablet
+node -e "require('sharp')('$S/frames/academica-54.png').resize({width:1280}).webp({quality:78}).toFile('$M/academica/promo-poster.webp')"
 
 echo "== Semáforo (el chequeo del paso 4b pasó: tests del Brain y del Coordinator en verde)"
 SEM="$HOME/Documents/Projects/semaforo/S01_c001_output.mp4"
