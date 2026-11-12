@@ -21,6 +21,8 @@ export type Media = MediaImage | MediaVideo;
 
 export type Project = {
   slug: string;
+  /** Nombre corto en mayúsculas para el título en Doto */
+  short: string;
   year: string;
   context: L;
   title: L;
@@ -54,6 +56,7 @@ const vid = (src: string, width: number, height: number, es: string, en: string)
 
 export const tars: Project = {
   slug: "tars",
+  short: "TARS",
   year: "2026",
   context: {
     es: "Challenge JAR 2026 · trabajo en equipo de 5 integrantes",
@@ -110,7 +113,7 @@ export const tarsDetail = {
     },
     nodes: [
       { id: "loc", name: { es: "Localización", en: "Localization" }, role: { es: "¿dónde estoy?", en: "where am I?" } },
-      { id: "det", name: { es: "Detección", en: "Detection" }, role: { es: "caja roja a punto en el mapa", en: "red box to point on the map" } },
+      { id: "det", name: { es: "Detección", en: "Detection" }, role: { es: "caja roja a punto del mapa", en: "red box to map point" } },
       { id: "fus", name: { es: "Fusión", en: "Fusion" }, role: { es: "observaciones a candidatas", en: "observations to candidates" } },
       { id: "cob", name: { es: "Cobertura", en: "Coverage" }, role: { es: "desde dónde mirar", en: "where to look from" } },
       { id: "mis", name: { es: "Misión", en: "Mission" }, role: { es: "¿qué sigue? ¿reporto?", en: "what now? report?" } },
@@ -182,6 +185,7 @@ export const tarsDetail = {
 export const projects: Project[] = [
   {
     slug: "academica",
+    short: "ACADÉMICA",
     year: "2026",
     context: { es: "Personal · la uso todos los días", en: "Personal · I use it every day" },
     title: { es: "Académica: app de facultad con tutor de voz", en: "Académica: a college app with a voice tutor" },
@@ -219,6 +223,7 @@ export const projects: Project[] = [
   },
   {
     slug: "parroquia",
+    short: "PARROQUIA",
     year: "2025",
     context: { es: "Personal · en producción", en: "Personal · in production" },
     title: { es: "Sitio de la Parroquia Madre de los Emigrantes", en: "Website for the Parroquia Madre de los Emigrantes" },
@@ -247,6 +252,7 @@ export const projects: Project[] = [
   },
   {
     slug: "motor-y",
+    short: "MOTOR Y",
     year: "2026",
     context: { es: "Fundamentos de la IA · TP1", en: "Foundations of AI · TP1" },
     title: { es: "Motor para el juego Y: MCTS + RAVE", en: "An engine for the game Y: MCTS + RAVE" },
@@ -275,6 +281,7 @@ export const projects: Project[] = [
   },
   {
     slug: "pca-montecarlo",
+    short: "PCA",
     year: "2026",
     context: { es: "Inferencia y Estimación · TP1", en: "Inference and Estimation · TP1" },
     title: { es: "PCA y Monte Carlo en PneumoniaMNIST", en: "PCA and Monte Carlo on PneumoniaMNIST" },
@@ -305,6 +312,7 @@ export const projects: Project[] = [
   },
   {
     slug: "bloons-td",
+    short: "BLOONS TD",
     year: "2025",
     context: { es: "Pensamiento Computacional 2025 · grupal", en: "Computational Thinking 2025 · group project" },
     title: { es: "Bloons TD en Pygame", en: "Bloons TD in Pygame" },
@@ -338,6 +346,7 @@ export const projects: Project[] = [
   },
   {
     slug: "semaforo",
+    short: "SEMÁFORO",
     year: "2026",
     context: { es: "Personal", en: "Personal" },
     title: { es: "Semáforo adaptativo: YOLOv8 + RL multiagente", en: "Adaptive traffic light: YOLOv8 + multi-agent RL" },
