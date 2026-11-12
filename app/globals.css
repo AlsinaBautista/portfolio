@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+@theme {
+  --color-libre: #f2f3f0;
+  --color-desconocido: #cdcfcb;
+  --color-pared: #141615;
+  --color-tinta-2: #5e625f;
+  --color-victima: #e1262d;
+  --color-traza: #2a5bd7;
+
+  --font-display: var(--font-doto), ui-monospace, monospace;
+  --font-sans: var(--font-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-martian), ui-monospace, SFMono-Regular, monospace;
+
+  /* escala: 13 / 16 / 20 / 28 / 44 / 72 */
+  --text-s13: 13px;
+  --text-s16: 16px;
+  --text-s20: 20px;
+  --text-s28: 28px;
+  --text-s44: 44px;
+  --text-s72: 72px;
+  --text-hero: clamp(64px, 12vw, 176px);
+}
+
+:root {
+  color-scheme: light;
+  --background: #f2f3f0;
+  --foreground: #141615;
+}
+
+html {
+  background: var(--background);
+  scroll-behavior: auto;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+body {
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* Foco visible: el rojo también marca el foco del teclado */
+:focus-visible {
+  outline: 2px solid var(--color-victima);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--color-pared);
+  color: var(--color-libre);
+}
+
+@layer components {
+/* Etiquetas de datos: mono, mayúsculas, 11–13 px */
+.label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.font-display-dot {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  line-height: 0.9;
+}
+
+/* Títulos de sección: Doto, 72 px en desktop y proporcional en mobile para no desbordar a 375 px */
+.title-section {
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  font-size: clamp(40px, 12vw, 72px);
+}
+}
+
+/* El nombre del hero aparece cuando arranca la decodificación (ver DecodeText) */
+.decode-wait {
+  opacity: 0;
+  animation: decode-show 0.01s linear var(--decode-delay, 0ms) forwards;
+}
+@keyframes decode-show {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .decode-wait {
+    opacity: 1;
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Flujo de datos en el diagrama de arquitectura */
+.arch-flow {
+  animation: arch-dash 1.1s linear infinite;
+}
+@keyframes arch-dash {
+  to {
+    stroke-dashoffset: -11;
+  }
+}
+
+/* Transición compartida lista -> detalle: sin movimiento si se pidió menos */
+::view-transition-group(*) {
+  animation-duration: 0.45s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
