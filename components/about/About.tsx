@@ -19,7 +19,11 @@ export default function About({ locale }: { locale: Locale }) {
           <h2 id="sobre-title" className="title-section">
             {site[locale].sections.about}
           </h2>
-          <p className="mt-8 max-w-xl text-[clamp(18px,1.7vw,20px)] leading-relaxed">{a.bio}</p>
+          <div className="mt-8 max-w-xl space-y-5 text-[clamp(18px,1.7vw,20px)] leading-relaxed">
+            {a.bio.map((p) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </div>
         </Reveal>
         <div className="space-y-14">
           <Timeline
