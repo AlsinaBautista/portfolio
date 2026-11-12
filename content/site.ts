@@ -92,6 +92,20 @@ const es = {
       note: "2º año",
       facts: ["Beca Abanderados Argentinos", "Promedio 8,92 / 10 · 6º de 87 en la carrera"],
     },
+    highschool: {
+      title: "Educación",
+      degree: "Secundario",
+      place: "Colegio Nuestra Señora de Nueva Pompeya, Necochea",
+      period: "egresado en 2024",
+      facts: ["Primer escolta", "Promedio general 9,84"],
+    },
+    competitions: {
+      title: "Competencias",
+      role: "Olimpíadas, programación y robótica",
+      place: "Challenge JAR 2026 · 3er puesto",
+      period: "2018 – 2026",
+      facts: ["Olimpíada Matemática Ñandú · instancia nacional, 2018 y 2019", "Torneo Argentino de Programación (TAP) · 2025"],
+    },
     experience: {
       title: "Experiencia",
       role: "Alumno colaborador",
@@ -256,6 +270,20 @@ const en: Site = {
       period: "2025 – present",
       note: "2nd year",
       facts: ["Abanderados Argentinos merit scholarship", "GPA 8.92 / 10 · ranked 6th of 87 in the program"],
+    },
+    highschool: {
+      title: "Education",
+      degree: "High school",
+      place: "Colegio Nuestra Señora de Nueva Pompeya, Necochea",
+      period: "graduated 2024",
+      facts: ["Primer escolta (school academic honor)", "Overall GPA 9.84"],
+    },
+    competitions: {
+      title: "Competitions",
+      role: "Olympiads, programming and robotics",
+      place: "JAR Challenge 2026 · 3rd place",
+      period: "2018 – 2026",
+      facts: ["Olimpíada Matemática Ñandú (math olympiad) · national round, 2018 and 2019", "Torneo Argentino de Programación (TAP) · 2025"],
     },
     experience: {
       title: "Experience",
