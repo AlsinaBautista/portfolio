@@ -38,20 +38,21 @@ export default function RobotStage({ alt, hint }: { alt: string; hint: string })
       setMount(true);
       return;
     }
-    const w = window as Window & {
-      requestIdleCallback?: (cb: () => void, o?: { timeout: number }) => number;
-      cancelIdleCallback?: (n: number) => void;
-    };
-    const hasIdle = typeof w.requestIdleCallback === "function";
+    // El chunk de three.js pesa y bloquea el hilo: se carga tras la primera interacción o, en
+    // desktop, a los 4 s. En táctil solo con interacción (el póster ya muestra el robot).
+    const coarse = window.matchMedia("(pointer: coarse)").matches;
     let cancelled = false;
     const go = () => {
       if (!cancelled) setMount(true);
     };
-    const id = hasIdle ? w.requestIdleCallback!(go, { timeout: 1800 }) : window.setTimeout(go, 900);
+    const events = ["pointermove", "pointerdown", "touchstart", "wheel", "scroll", "keydown"] as const;
+    const onInput = () => go();
+    events.forEach((e) => window.addEventListener(e, onInput, { once: true, passive: true }));
+    const timer = coarse ? undefined : window.setTimeout(go, 4000);
     return () => {
       cancelled = true;
-      if (hasIdle) w.cancelIdleCallback?.(id);
-      else clearTimeout(id);
+      clearTimeout(timer);
+      events.forEach((e) => window.removeEventListener(e, onInput));
     };
   }, [reduced, opts.poster]);
 

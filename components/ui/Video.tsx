@@ -35,7 +35,25 @@ export default function Video({
   const ref = useRef<HTMLVideoElement>(null);
   const reduced = useReducedMotion();
   const [manual, setManual] = useState(false);
+  const [near, setNear] = useState(false);
   const auto = !reduced && mode === "loop";
+
+  // El póster se pide recién cuando el video está cerca de la pantalla
+  useEffect(() => {
+    const v = ref.current;
+    if (!v) return;
+    const io = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "400px" },
+    );
+    io.observe(v);
+    return () => io.disconnect();
+  }, []);
 
   useEffect(() => {
     const v = ref.current;
@@ -71,7 +89,7 @@ export default function Video({
         loop={mode !== "controls"}
         playsInline
         preload="none"
-        poster={`${src}-poster.webp`}
+        poster={near ? `${src}-poster.webp` : undefined}
         controls={showControls || manual}
         aria-label={label}
         data-video=""
