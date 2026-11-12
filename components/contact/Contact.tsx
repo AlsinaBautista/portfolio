@@ -17,8 +17,7 @@ export default function Contact({ locale }: { locale: Locale }) {
       className="mx-auto min-h-[85dvh] max-w-[1600px] px-5 pb-28 pt-24 sm:px-10 lg:pt-32"
     >
       <Reveal>
-        <p className="label text-tinta-2">{c.eyebrow}</p>
-        <h2 id="contacto-title" className="title-section mt-4">
+        <h2 id="contacto-title" className="title-section">
           {c.title}
         </h2>
         <p className="mt-6 max-w-lg text-[clamp(18px,1.7vw,20px)] leading-relaxed">{c.lead}</p>

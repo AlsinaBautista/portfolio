@@ -1,5 +1,6 @@
 "use client";
 
+import { ViewTransition } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion, useSpring, type MotionValue } from "motion/react";
 import { useEffect } from "react";
@@ -57,7 +58,7 @@ export default function HoverPreview({
                 const active = i.slug === hovered;
                 const ratio = i.cover.width / i.cover.height;
                 const h = Math.round(W / ratio);
-                return (
+                const inner = (
                   <div
                     key={i.slug}
                     className={active ? "relative" : "absolute inset-0 opacity-0"}
@@ -69,6 +70,13 @@ export default function HoverPreview({
                       <Image src={i.cover.src} alt="" width={i.cover.width} height={i.cover.height} sizes="320px" className="h-full w-full object-cover" />
                     )}
                   </div>
+                );
+                return active ? (
+                  <ViewTransition key={i.slug} name={`cover-${i.slug}`} share="morph">
+                    {inner}
+                  </ViewTransition>
+                ) : (
+                  inner
                 );
               })}
           </motion.div>

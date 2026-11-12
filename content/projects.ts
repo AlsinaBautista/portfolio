@@ -26,6 +26,8 @@ export type Project = {
   year: string;
   context: L;
   title: L;
+  /** Título sin el prefijo del nombre corto: es el h1 de la página de detalle, debajo del nombre en Doto */
+  name: L;
   /** Una frase para la lista y para la metadata */
   summary: L;
   /** Párrafos del detalle */
@@ -33,6 +35,8 @@ export type Project = {
   facts: { value: string; label: L }[];
   stack: string[];
   links: { label: L; href: string }[];
+  /** Si hay diagrama animado, la página de detalle lo muestra en lugar de la portada (la portada es su captura estática) */
+  diagram?: "semaforo";
   /** Media que aparece en la fila / vista previa */
   cover: Media;
   /** Resto de la galería del detalle */
@@ -66,6 +70,7 @@ export const tars: Project = {
     es: "TARS: robot autónomo de búsqueda y rescate",
     en: "TARS: autonomous search-and-rescue robot",
   },
+  name: { es: "Robot autónomo de búsqueda y rescate", en: "Autonomous search-and-rescue robot" },
   summary: {
     es: "Un robot que explora un laberinto que nunca vio, encuentra las cajas rojas, las reporta y vuelve a la base. Yo programé el módulo de misión.",
     en: "A robot that explores a maze it has never seen, finds the red boxes, reports them and drives back to base. I wrote the mission module.",
@@ -189,6 +194,7 @@ export const projects: Project[] = [
     year: "2026",
     context: { es: "Personal · la uso todos los días", en: "Personal · I use it every day" },
     title: { es: "Académica: app de facultad con tutor de voz", en: "Académica: a college app with a voice tutor" },
+    name: { es: "App de facultad con tutor de voz", en: "A college app with a voice tutor" },
     summary: {
       es: "App de escritorio que ordena la cursada y tiene un tutor que mira la hoja, contesta en voz alta y dibuja sobre la página.",
       en: "A desktop app that organizes my courses, with a tutor that looks at the page, answers out loud and draws on it.",
@@ -227,6 +233,7 @@ export const projects: Project[] = [
     year: "2025",
     context: { es: "Personal · en producción", en: "Personal · in production" },
     title: { es: "Sitio de la Parroquia Madre de los Emigrantes", en: "Website for the Parroquia Madre de los Emigrantes" },
+    name: { es: "Sitio de la Parroquia Madre de los Emigrantes", en: "Website for the Parroquia Madre de los Emigrantes" },
     summary: {
       es: "El sitio de una parroquia de Buenos Aires, con un panel para que el personal lo edite sin necesitar un desarrollador.",
       en: "The website of a parish in Buenos Aires, with an admin panel so the staff can edit it without a developer.",
@@ -256,6 +263,7 @@ export const projects: Project[] = [
     year: "2026",
     context: { es: "Fundamentos de la IA · TP1", en: "Foundations of AI · TP1" },
     title: { es: "Motor para el juego Y: MCTS + RAVE", en: "An engine for the game Y: MCTS + RAVE" },
+    name: { es: "Motor de MCTS + RAVE para el juego Y", en: "An MCTS + RAVE engine for the game Y" },
     summary: {
       es: "Un agente que juega al Y con búsqueda de árbol Monte Carlo. Quedó 6º de 45 en el ranking provisional.",
       en: "An agent that plays the game Y using Monte Carlo tree search. It ranked 6th of 45 in the provisional ranking.",
@@ -285,6 +293,7 @@ export const projects: Project[] = [
     year: "2026",
     context: { es: "Inferencia y Estimación · TP1", en: "Inference and Estimation · TP1" },
     title: { es: "PCA y Monte Carlo en PneumoniaMNIST", en: "PCA and Monte Carlo on PneumoniaMNIST" },
+    name: { es: "PCA y Monte Carlo en PneumoniaMNIST", en: "PCA and Monte Carlo on PneumoniaMNIST" },
     summary: {
       es: "Comprimo radiografías de tórax con PCA y mido cuánto aguanta un clasificador cuando las imágenes se rotan al azar.",
       en: "I compress chest X-rays with PCA and measure how well a classifier holds up when the images are randomly rotated.",
@@ -316,6 +325,7 @@ export const projects: Project[] = [
     year: "2025",
     context: { es: "Pensamiento Computacional 2025 · grupal", en: "Computational Thinking 2025 · group project" },
     title: { es: "Bloons TD en Pygame", en: "Bloons TD in Pygame" },
+    name: { es: "Juego de defensa de torres en Pygame", en: "A tower defense game in Pygame" },
     summary: {
       es: "Un juego de defensa de torres hecho desde cero, con 50 rondas, 4 tipos de torre y mejoras.",
       en: "A tower defense game built from scratch, with 50 rounds, 4 tower types and upgrades.",
@@ -350,6 +360,7 @@ export const projects: Project[] = [
     year: "2026",
     context: { es: "Personal", en: "Personal" },
     title: { es: "Semáforo adaptativo: YOLOv8 + RL multiagente", en: "Adaptive traffic light: YOLOv8 + multi-agent RL" },
+    name: { es: "Tráfico adaptativo con YOLOv8 y RL multiagente", en: "Adaptive traffic control with YOLOv8 and multi-agent RL" },
     summary: {
       es: "Control de tráfico con visión en el borde y aprendizaje por refuerzo, donde una capa determinista en C++ tiene la última palabra.",
       en: "Traffic control with edge vision and reinforcement learning, where a deterministic C++ layer has the final say.",
@@ -372,7 +383,8 @@ export const projects: Project[] = [
         href: "https://github.com/AlsinaBautista/semaforo",
       },
     ],
-    cover: vid("semaforo/clip", 1280, 720, "Detección de vehículos con YOLOv8 en una intersección", "Vehicle detection with YOLOv8 at an intersection"),
+    cover: img("semaforo/arquitectura.webp", 1600, 560, "Diagrama de la arquitectura: cámara, YOLOv8, agente MAPPO, capa de seguridad en C++ y luces", "Architecture diagram: camera, YOLOv8, MAPPO agent, C++ safety layer and lights"),
+    diagram: "semaforo",
     gallery: [],
   },
 ];

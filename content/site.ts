@@ -47,6 +47,7 @@ const es = {
     openDetail: "Ver el caso completo",
     stackLabel: "Stack",
     replayTitle: "Corrida 2 de clasificación",
+    replayRun: "Corrida 2 · 4/11",
     replayCaption:
       "La traza es la pose que estimó la localización del robot durante la corrida, sobre el mapa que publicó el juez. Los cuadrados rojos son los reportes.",
     replayHint: "Scrolleá para avanzar la corrida",
@@ -56,7 +57,6 @@ const es = {
     videoLabel: "El robot real en la arena",
   },
   projects: {
-    eyebrow: "Proyectos",
     intro: "Lo que construí en la facultad y por mi cuenta. Cada fila es un reporte.",
     reported: "reportado",
     open: "Ver proyecto",
@@ -78,7 +78,6 @@ const es = {
     tarsReplay: "Replay de la corrida 2",
   },
   about: {
-    eyebrow: "Sobre mí",
     bio: "Soy Bautista. Estudio Ingeniería en Inteligencia Artificial en la Universidad de San Andrés. Me interesa la IA que funciona fuera de la pantalla: robots que navegan solos, modelos cuyos errores se pueden medir y herramientas que uso todos los días. En 2026 programé el módulo de misión de TARS, el robot de búsqueda y rescate con el que salimos terceros en el Challenge JAR. Estoy abierto a pasantías para 2027.",
     timelineTitle: "Trayectoria",
     education: {
@@ -106,9 +105,8 @@ const es = {
     ],
   },
   contact: {
-    eyebrow: "Contacto",
     title: "¿Hablamos?",
-    lead: "Busco una pasantía para 2027. Escribime o mirá el código en GitHub.",
+    lead: "Estoy abierto a pasantías para 2027. Escribime o mirá el código en GitHub.",
     copy: "Copiar mail",
     copied: "Mail copiado",
     copyHint: "hbato21@gmail.com",
@@ -118,6 +116,23 @@ const es = {
     checking: "verificando",
     done: "/done publicado",
     trailLabel: "Traza de vuelta al punto de inicio",
+  },
+  semaforo: {
+    label: "Arquitectura del semáforo adaptativo: cámara, YOLOv8, agente MAPPO, capa de seguridad en C++ y luces, con MQTT y un coordinador de ola verde",
+    camera: { name: "Cámara", role: "video de la calle" },
+    yolo: { name: "YOLOv8", role: "detecta y sigue autos" },
+    agent: { name: "Agente MAPPO", role: "uno por intersección" },
+    safety: { name: "Capa de seguridad", role: "FSM en C++ · decide" },
+    lights: { name: "Luces", role: "la fase real" },
+    bus: "MQTT · Mosquitto",
+    coordinator: { name: "Coordinador", role: "ola verde entre cruces" },
+    video: "video",
+    counts: "conteo y tracks",
+    request: "pide una fase",
+    phase: "fase validada",
+    fallback: "si falla el modelo, el broker o la cámara: ciclo fijo seguro",
+    onnx: "política exportada a ONNX, corre en cada Edge",
+    title: "La IA pide, la capa de seguridad decide",
   },
   tarsDetail: {
     archTopics: "topics oficiales y /jar/ propios",
@@ -192,6 +207,7 @@ const en: Site = {
     openDetail: "Read the full case",
     stackLabel: "Stack",
     replayTitle: "Qualification run 2",
+    replayRun: "Run 2 · Nov 4",
     replayCaption:
       "The trail is the pose the robot's localization estimated during the run, drawn on the map the judge published. The red squares are the reports.",
     replayHint: "Scroll to advance the run",
@@ -201,7 +217,6 @@ const en: Site = {
     videoLabel: "The real robot in the arena",
   },
   projects: {
-    eyebrow: "Projects",
     intro: "What I built for college and on my own. Each row is a report.",
     reported: "reported",
     open: "View project",
@@ -223,7 +238,6 @@ const en: Site = {
     tarsReplay: "Run 2 replay",
   },
   about: {
-    eyebrow: "About",
     bio: "I'm Bautista, an Artificial Intelligence Engineering student at Universidad de San Andrés. I like AI that works off the screen: robots that navigate on their own, models whose mistakes you can measure, and tools I use every day. In 2026 I wrote the mission module for TARS, the search-and-rescue robot that took our team to 3rd place at the JAR Challenge. I'm open to internships for 2027.",
     timelineTitle: "Timeline",
     education: {
@@ -251,9 +265,8 @@ const en: Site = {
     ],
   },
   contact: {
-    eyebrow: "Contact",
     title: "Shall we talk?",
-    lead: "I'm looking for an internship for 2027. Write to me or have a look at the code on GitHub.",
+    lead: "I'm open to internships for 2027. Write to me or check out the code on GitHub.",
     copy: "Copy email",
     copied: "Email copied",
     copyHint: "hbato21@gmail.com",
@@ -263,6 +276,23 @@ const en: Site = {
     checking: "checking",
     done: "/done published",
     trailLabel: "Trail back to the start point",
+  },
+  semaforo: {
+    label: "Adaptive traffic light architecture: camera, YOLOv8, MAPPO agent, C++ safety layer and lights, with MQTT and a green-wave coordinator",
+    camera: { name: "Camera", role: "street video" },
+    yolo: { name: "YOLOv8", role: "detects, tracks cars" },
+    agent: { name: "MAPPO agent", role: "one per intersection" },
+    safety: { name: "Safety layer", role: "C++ FSM · decides" },
+    lights: { name: "Lights", role: "the real phase" },
+    bus: "MQTT · Mosquitto",
+    coordinator: { name: "Coordinator", role: "green wave across junctions" },
+    video: "video",
+    counts: "counts and tracks",
+    request: "requests a phase",
+    phase: "validated phase",
+    fallback: "if the model, broker or camera fails: safe fixed cycle",
+    onnx: "policy exported to ONNX, runs on each Edge",
+    title: "The AI asks, the safety layer decides",
   },
   tarsDetail: {
     archTopics: "official and own /jar/ topics",

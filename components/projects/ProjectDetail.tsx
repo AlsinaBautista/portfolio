@@ -1,3 +1,4 @@
+import { ViewTransition } from "react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { site } from "@/content/site";
@@ -6,6 +7,7 @@ import Chip from "@/components/ui/Chip";
 import Reveal from "@/components/ui/Reveal";
 import ReportMarker from "@/components/ui/ReportMarker";
 import MediaView from "./MediaView";
+import SemaforoDiagram from "./SemaforoDiagram";
 
 /** Página de detalle genérica; `extras` va después de los números (lo usa /proyectos/tars). */
 export default function ProjectDetail({
@@ -38,23 +40,29 @@ export default function ProjectDetail({
             {project.short}
           </span>
           <span className="mt-4 block max-w-3xl text-[clamp(24px,3.4vw,36px)] font-bold leading-tight">
-            {project.title[locale]}
+            {project.name[locale]}
           </span>
         </h1>
         <p className="mt-5 max-w-2xl text-[20px] leading-snug text-tinta-2">{project.summary[locale]}</p>
       </header>
 
+      <ViewTransition name={`cover-${project.slug}`} share="morph">
       <div className="mt-10" data-cover={project.slug}>
-        <MediaView
-          media={project.cover}
-          locale={locale}
-          priority
-          sizes="(min-width: 1200px) 1100px, 100vw"
-          playLabel={t.detail.play}
-          pauseLabel={t.detail.pause}
-          className={project.cover.type === "image" && project.cover.height > project.cover.width ? "mx-auto max-w-md" : ""}
-        />
+        {project.diagram === "semaforo" ? (
+          <SemaforoDiagram t={t.semaforo} />
+        ) : (
+          <MediaView
+            media={project.cover}
+            locale={locale}
+            priority
+            sizes="(min-width: 1200px) 1100px, 100vw"
+            playLabel={t.detail.play}
+            pauseLabel={t.detail.pause}
+            className={project.cover.type === "image" && project.cover.height > project.cover.width ? "mx-auto max-w-md" : ""}
+          />
+        )}
       </div>
+      </ViewTransition>
 
       <div className="mt-14 grid gap-x-16 gap-y-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         <div className="max-w-2xl space-y-5 text-[17px] leading-relaxed">

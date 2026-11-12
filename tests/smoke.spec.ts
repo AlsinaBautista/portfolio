@@ -111,3 +111,53 @@ test("se puede recorrer con Tab y el foco se ve", async ({ page }) => {
   expect(outline.style).not.toBe("none");
   expect(outline.color).toBe("rgb(225, 38, 45)");
 });
+
+test("el HUD se oculta mientras el replay está en pantalla y vuelve después", async ({ page }) => {
+  await page.goto("/es");
+  await page.waitForTimeout(1200);
+  await expect(page.getByTestId("hud")).toHaveAttribute("data-hidden", "false");
+  await page.evaluate(() => {
+    const r = document.querySelector('[data-testid="run-replay"]')!.getBoundingClientRect();
+    window.scrollTo(0, r.top + window.scrollY + 200);
+  });
+  await expect(page.getByTestId("hud")).toHaveAttribute("data-hidden", "true");
+  await page.evaluate(() => document.querySelector("#sobre-mi")!.scrollIntoView());
+  await expect(page.getByTestId("hud")).toHaveAttribute("data-hidden", "false");
+});
+
+test("el encabezado del replay dice de qué corrida es", async ({ page }) => {
+  await page.goto("/es");
+  await expect(page.getByTestId("run-replay")).toContainText(/Corrida 2 · 4\/11/);
+  await page.goto("/en");
+  await expect(page.getByTestId("run-replay")).toContainText(/Run 2 · Nov 4/);
+});
+
+test("el semáforo muestra el diagrama de arquitectura y no usa video del dataset", async ({ page, request }) => {
+  await page.goto("/es/proyectos/semaforo");
+  await expect(page.locator('svg[data-diagram="semaforo"]')).toBeVisible();
+  expect(await page.locator("video").count()).toBe(0);
+  const gone = await request.get("/media/semaforo/clip.mp4");
+  expect(gone.status()).toBe(404);
+});
+
+test("el h1 del detalle no repite el nombre corto", async ({ page }) => {
+  await page.goto("/es/proyectos/tars");
+  await expect(page.locator("h1")).toContainText("Robot autónomo de búsqueda y rescate");
+  await expect(page.locator("h1")).not.toContainText("TARS: ");
+});
+
+test("en mobile el hero va nombre, subtítulo, chip, links y después el robot", async ({ browser }) => {
+  const ctx = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const page = await ctx.newPage();
+  await page.goto("/es");
+  const y = async (sel: string) => (await page.locator(sel).first().boundingBox())!.y;
+  const h1 = await y("h1");
+  const tagline = await y("#hero p");
+  const link = await y("#hero a[href^='mailto']");
+  const robot = await y("#hero figure");
+  expect(h1).toBeLessThan(tagline);
+  expect(tagline).toBeLessThan(link);
+  expect(link).toBeLessThan(robot);
+  expect(link).toBeLessThan(844);
+  await ctx.close();
+});

@@ -24,7 +24,7 @@ export default function Hero({ locale }: { locale: Locale }) {
         </h1>
       </div>
 
-      <div className="lg:col-start-2 lg:row-span-2 lg:row-start-1">
+      <div className="order-last lg:order-none lg:col-start-2 lg:row-span-2 lg:row-start-1">
         <RobotStage alt={t.posterAlt} hint={t.drag} />
       </div>
 

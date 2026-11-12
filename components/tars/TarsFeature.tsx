@@ -23,6 +23,7 @@ export default function TarsFeature({ locale }: { locale: Locale }) {
     arena: t.tars.replayArena,
     caption: t.tars.replayCaption,
     reports: t.hud.reports,
+    run: t.tars.replayRun,
     summary:
       locale === "es"
         ? `Mapa de la arena (${t.tars.replayArena}) con la traza del robot en la corrida 2 de clasificación. Hay 3 reportes, a los ${data.reportes.map((r) => r.t.toFixed(1)).join(", ")} segundos, cada uno a menos de 10 cm del centro de la caja.`

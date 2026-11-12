@@ -19,7 +19,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Pick<Props, "params">): Promise<Metadata> {
   const { locale } = await params;
-  if (!hasLocale(locale)) return {};
+  if (!hasLocale(locale)) return { metadataBase: new URL(siteUrl) };
   const t = site[locale].meta;
   return {
     metadataBase: new URL(siteUrl),

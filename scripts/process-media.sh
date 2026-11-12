@@ -11,7 +11,7 @@ PROMO="$HOME/Documents/Projects/notes-promo/promo/out/academica-promo-1080.mp4"
 export MEDIA_SCRATCH="${MEDIA_SCRATCH:-$PWD/.scratch}"
 S="$MEDIA_SCRATCH"
 M=public/media
-mkdir -p "$S/jar" "$S/frames" "$M"/{tars,academica,parroquia,fia,inferencia,bloons,semaforo} public/data
+mkdir -p "$S/jar" "$S/frames" "$M"/{tars,academica,parroquia,fia,inferencia,bloons} public/data
 
 # Codifica un video a MP4 (H.264) y WebM (VP9), sin audio, y saca un póster WebP.
 #   encode <entrada> <salida sin extensión> <filtro de video> <crf264> <crfvp9> [args de entrada...]
@@ -50,12 +50,6 @@ for t in 14 54 84; do
 done
 # el primer cuadro del promo es una intro oscura: el póster es el cuadro de la tablet
 node -e "require('sharp')('$S/frames/academica-54.png').resize({width:1280}).webp({quality:78}).toFile('$M/academica/promo-poster.webp')"
-
-echo "== Semáforo (el chequeo del paso 4b pasó: tests del Brain y del Coordinator en verde)"
-SEM="$HOME/Documents/Projects/semaforo/S01_c001_output.mp4"
-if [ -f "$SEM" ]; then
-  encode "$SEM" "$M/semaforo/clip" "scale=1280:720,fps=15" 29 38 -ss 8 -t 14
-fi
 
 echo "== Bloons (gameplay real, capturado sin ventana)"
 if [ ! -d "$S/bloons-repo" ]; then

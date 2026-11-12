@@ -29,8 +29,7 @@ export default function ProjectsSection({ locale }: { locale: Locale }) {
     >
       <Reveal className="mb-12 grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
         <div>
-          <p className="label text-tinta-2">{t.projects.eyebrow}</p>
-          <h2 id="proyectos-title" className="title-section mt-4">
+          <h2 id="proyectos-title" className="title-section">
             {t.sections.projects}
           </h2>
         </div>

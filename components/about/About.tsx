@@ -16,8 +16,7 @@ export default function About({ locale }: { locale: Locale }) {
     >
       <div className="grid gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)]">
         <Reveal>
-          <p className="label text-tinta-2">{a.eyebrow}</p>
-          <h2 id="sobre-title" className="title-section mt-4">
+          <h2 id="sobre-title" className="title-section">
             {site[locale].sections.about}
           </h2>
           <p className="mt-8 max-w-xl text-[clamp(18px,1.7vw,20px)] leading-relaxed">{a.bio}</p>

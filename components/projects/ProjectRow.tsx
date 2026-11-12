@@ -1,5 +1,6 @@
 "use client";
 
+import { ViewTransition } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
@@ -51,6 +52,7 @@ export default function ProjectRow({
 
           {/* media: visible en mobile; en desktop solo si hay reduced motion */}
           <div className={`-order-1 ${fixedMedia ? "md:order-last md:col-span-full md:w-64" : "md:hidden"}`}>
+            <ViewTransition name={`cover-${item.slug}`} share="morph">
             <div className="relative overflow-hidden bg-desconocido">
               {item.cover.type === "video" ? (
                 <Video
@@ -73,6 +75,7 @@ export default function ProjectRow({
                 />
               )}
             </div>
+            </ViewTransition>
           </div>
 
           <div className="min-w-0">

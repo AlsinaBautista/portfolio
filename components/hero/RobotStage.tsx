@@ -69,7 +69,7 @@ export default function RobotStage({ alt, hint }: { alt: string; hint: string })
   return (
     <figure
       ref={frameRef}
-      className="relative m-0 aspect-[4/5] w-full max-w-[34rem] justify-self-end border border-desconocido bg-libre/60 sm:aspect-[5/6] lg:max-h-[72vh]"
+      className="relative m-0 h-[54svh] w-full max-w-[34rem] justify-self-end border border-desconocido bg-libre/60 md:h-auto md:aspect-[5/6] lg:max-h-[72vh]"
       style={{ touchAction: "pan-y" }}
     >
       {/* marcas de esquina, como en un recuadro de mapa */}
