@@ -30,6 +30,8 @@ export default function About({ locale }: { locale: Locale }) {
             heading={a.timelineTitle}
             entries={[
               { kind: a.education.title, title: a.education.degree, place: a.education.place, period: a.education.period, note: a.education.note, facts: a.education.facts },
+              { kind: a.highschool.title, title: a.highschool.degree, place: a.highschool.place, period: a.highschool.period, facts: a.highschool.facts },
+              { kind: a.competitions.title, title: a.competitions.role, place: a.competitions.place, period: a.competitions.period, facts: a.competitions.facts },
               { kind: a.experience.title, title: a.experience.role, place: a.experience.place, period: a.experience.period },
             ]}
           />

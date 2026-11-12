@@ -23,8 +23,8 @@ export default function Timeline({ entries, heading }: { entries: (Entry & { kin
           className="absolute bottom-1 left-[5px] top-1 w-px origin-top bg-pared"
           style={{ scaleY: reduced ? 1 : scale }}
         />
-        {entries.map((e) => (
-          <li key={e.kind} className="relative">
+        {entries.map((e, i) => (
+          <li key={`${e.kind}-${i}`} className="relative">
             <span aria-hidden className="absolute -left-8 top-[7px] h-[11px] w-[11px] border border-pared bg-libre" />
             <p className="label text-tinta-2">
               {e.kind} · {e.period}

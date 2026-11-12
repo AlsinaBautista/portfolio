@@ -92,6 +92,20 @@ const es = {
       note: "2º año",
       facts: ["Beca Abanderados Argentinos", "Promedio 8,92 / 10 · 6º de 87 en la carrera"],
     },
+    highschool: {
+      title: "Educación",
+      degree: "Secundario",
+      place: "Colegio Nuestra Señora de Nueva Pompeya, Necochea",
+      period: "egresado en 2024",
+      facts: ["Primer escolta", "Promedio general 9,84"],
+    },
+    competitions: {
+      title: "Competencias",
+      role: "Olimpíadas, programación y robótica",
+      place: "Challenge JAR 2026 · 3er puesto",
+      period: "2018 – 2026",
+      facts: ["Olimpíada Matemática Ñandú · instancia nacional, 2018 y 2019", "Torneo Argentino de Programación (TAP) · 2025"],
+    },
     experience: {
       title: "Experiencia",
       role: "Alumno colaborador",
@@ -138,6 +152,13 @@ const es = {
     fallback: "si falla el modelo, el broker o la cámara: ciclo fijo seguro",
     onnx: "política exportada a ONNX, corre en cada Edge",
     title: "La IA pide, la capa de seguridad decide",
+  },
+  cv: {
+    short: "CV",
+    download: "Descargar CV",
+    downloadPdf: "Descargar PDF",
+    back: "Volver al sitio",
+    meta: "CV de Bautista Tomás Alsina, estudiante de Ingeniería en Inteligencia Artificial en la UdeSA.",
   },
   tarsDetail: {
     archTopics: "topics oficiales y /jar/ propios",
@@ -257,6 +278,20 @@ const en: Site = {
       note: "2nd year",
       facts: ["Abanderados Argentinos merit scholarship", "GPA 8.92 / 10 · ranked 6th of 87 in the program"],
     },
+    highschool: {
+      title: "Education",
+      degree: "High school",
+      place: "Colegio Nuestra Señora de Nueva Pompeya, Necochea",
+      period: "graduated 2024",
+      facts: ["Primer escolta (flag-escort honor for top grades)", "Overall GPA 9.84"],
+    },
+    competitions: {
+      title: "Competitions",
+      role: "Olympiads, programming and robotics",
+      place: "JAR Challenge 2026 · 3rd place",
+      period: "2018 – 2026",
+      facts: ["Olimpíada Matemática Ñandú (math olympiad) · national round, 2018 and 2019", "Torneo Argentino de Programación (TAP) · 2025"],
+    },
     experience: {
       title: "Experience",
       role: "Student assistant",
@@ -303,6 +338,13 @@ const en: Site = {
     fallback: "if the model, broker or camera fails: safe fixed cycle",
     onnx: "policy exported to ONNX, runs on each Edge",
     title: "The AI asks, the safety layer decides",
+  },
+  cv: {
+    short: "CV",
+    download: "Download CV",
+    downloadPdf: "Download PDF",
+    back: "Back to the site",
+    meta: "Resume of Bautista Tomás Alsina, an Artificial Intelligence Engineering student at UdeSA.",
   },
   tarsDetail: {
     archTopics: "official and own /jar/ topics",
