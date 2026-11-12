@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 
-type Entry = { title: string; place: string; period: string; note?: string };
+type Entry = { title: string; place: string; period: string; note?: string; facts?: string[] };
 
 /** Línea de tiempo que se dibuja con el scroll. Con reduced motion queda dibujada. */
 export default function Timeline({ entries, heading }: { entries: (Entry & { kind: string })[]; heading: string }) {
@@ -34,6 +34,15 @@ export default function Timeline({ entries, heading }: { entries: (Entry & { kin
               {e.place}
               {e.note ? <span className="text-tinta-2"> · {e.note}</span> : null}
             </p>
+            {e.facts?.length ? (
+              <ul className="mt-3 space-y-1.5">
+                {e.facts.map((f) => (
+                  <li key={f} className="label text-[11px] tabular-nums">
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </li>
         ))}
       </ol>

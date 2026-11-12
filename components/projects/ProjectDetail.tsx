@@ -58,7 +58,7 @@ export default function ProjectDetail({
             sizes="(min-width: 1200px) 1100px, 100vw"
             playLabel={t.detail.play}
             pauseLabel={t.detail.pause}
-            className={project.cover.type === "image" && project.cover.height > project.cover.width ? "mx-auto max-w-md" : ""}
+            className={project.cover.height > project.cover.width ? "mx-auto max-w-md" : ""}
           />
         )}
       </div>

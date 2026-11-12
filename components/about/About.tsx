@@ -25,7 +25,7 @@ export default function About({ locale }: { locale: Locale }) {
           <Timeline
             heading={a.timelineTitle}
             entries={[
-              { kind: a.education.title, title: a.education.degree, place: a.education.place, period: a.education.period, note: a.education.note },
+              { kind: a.education.title, title: a.education.degree, place: a.education.place, period: a.education.period, note: a.education.note, facts: a.education.facts },
               { kind: a.experience.title, title: a.experience.role, place: a.experience.place, period: a.experience.period },
             ]}
           />

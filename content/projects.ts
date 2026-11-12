@@ -99,9 +99,10 @@ export const tars: Project = {
       href: "https://github.com/AlsinaBautista/jar-challenge-2026",
     },
   ],
-  cover: vid("tars/loop", 836, 640, "El ROSMASTER X3 de TARS arriba de su círculo de salida, visto desde arriba", "TARS's ROSMASTER X3 on its start circle, seen from above"),
+  cover: vid("tars/run1-loop", 464, 832, "TARS sale de la base y explora el laberinto en la primera corrida de clasificación, visto desde arriba y acelerado 4×", "TARS leaves the base and explores the maze in the first qualification run, seen from above and sped up 4×"),
   gallery: [
     vid("tars/final-run", 320, 456, "El robot real recorriendo el laberinto de la final", "The real robot driving through the final's maze"),
+    img("tars/start-circle.webp", 1200, 1600, "El robot en su círculo de salida, antes de arrancar", "The robot on its start circle, before the run"),
     img("tars/arena-qualification.webp", 640, 853, "La arena de clasificación vista desde arriba", "The qualification arena seen from above"),
     img("tars/sim-maze.webp", 810, 766, "Corrida en el simulador sobre el laberinto de práctica", "Simulator run on the practice maze"),
     img("tars/team.webp", 1400, 1050, "El equipo con los diplomas del 3er puesto", "The team with the 3rd place diplomas"),
@@ -164,8 +165,8 @@ export const tarsDetail = {
   video: {
     title: { es: "La corrida completa, a 16×", en: "The full run, at 16×" },
     caption: {
-      es: "Cinco minutos y medio de la corrida real, acelerados.",
-      en: "Five and a half minutes of the real run, sped up.",
+      es: "La primera corrida de clasificación (4/11), seis minutos y medio acelerados: sale de la base, recorre el laberinto y vuelve.",
+      en: "The first qualification run (Nov 4), six and a half minutes sped up: it leaves the base, covers the maze and comes back.",
     },
   },
   lesson: {

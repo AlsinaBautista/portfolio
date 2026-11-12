@@ -102,7 +102,7 @@ export default function TarsExtras({ locale }: { locale: Locale }) {
       <Block title={d.video.title[locale]}>
         <div className="mt-6 grid items-start gap-6 md:grid-cols-[minmax(0,280px)_minmax(0,1fr)]">
           <Video
-            src="/media/tars/run-x16"
+            src="/media/tars/run1-x16"
             width={464}
             height={832}
             label={d.video.title[locale]}
