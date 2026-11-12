@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { hasLocale, locales } from "@/lib/i18n";
 import { site } from "@/content/site";
 import { cv, cvFile } from "@/content/cv";
-import { cvSourceHash } from "@/lib/cvHash";
 import CvSheet from "@/components/cv/CvSheet";
 import ScaleToFit from "@/components/cv/ScaleToFit";
 import "./cv.css";
@@ -44,7 +43,7 @@ export default async function CvPage({ params }: { params: Params }) {
         </a>
       </div>
       <ScaleToFit>
-        <CvSheet locale={locale} hash={cvSourceHash()} />
+        <CvSheet locale={locale} />
       </ScaleToFit>
     </div>
   );

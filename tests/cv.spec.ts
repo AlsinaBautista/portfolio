@@ -79,13 +79,10 @@ for (const locale of ["es", "en"] as const) {
   });
 }
 
-test("el PDF commiteado no está desactualizado (hash del contenido)", async ({ page }) => {
+test("el PDF commiteado no está desactualizado (hash de las fuentes del CV)", async () => {
   const stored = JSON.parse(readFileSync(join(root, "public/cv/cv-hash.json"), "utf8")).hash;
-  for (const locale of ["es", "en"]) {
-    await page.goto(`/${locale}/cv`);
-    const current = await page.getAttribute("[data-cv-hash]", "data-cv-hash");
-    expect(current, "corré `npm run cv` y commiteá public/cv/").toBe(stored);
-  }
+  const { cvSourceHash } = await import("../scripts/cv-hash.mjs");
+  expect(cvSourceHash(root), "corré `npm run cv` y commiteá public/cv/").toBe(stored);
 });
 
 test("a 375 px /cv no tiene scroll horizontal", async ({ browser }) => {

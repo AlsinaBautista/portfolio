@@ -6,6 +6,7 @@ import { chromium } from "@playwright/test";
 import { PDFDocument } from "pdf-lib";
 import { spawn } from "node:child_process";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { cvSourceHash } from "./cv-hash.mjs";
 
 const PORT = 3299;
 const base = `http://localhost:${PORT}`;
@@ -28,14 +29,10 @@ try {
   await waitReady();
   mkdirSync("public/cv", { recursive: true });
   const browser = await chromium.launch();
-  let hash = null;
   for (const locale of ["es", "en"]) {
     const page = await browser.newPage({ viewport: { width: 1200, height: 1600 } });
     await page.goto(`${base}/${locale}/cv`, { waitUntil: "networkidle" });
     await page.evaluate(() => document.fonts.ready);
-    const h = await page.getAttribute("[data-cv-hash]", "data-cv-hash");
-    if (hash && h !== hash) throw new Error("los dos idiomas devolvieron hashes distintos");
-    hash = h;
     await page.emulateMedia({ media: "print" });
     const out = `public/cv/bautista-alsina-cv-${locale}.pdf`;
     await page.pdf({
@@ -52,6 +49,7 @@ try {
     await page.close();
   }
   await browser.close();
+  const hash = cvSourceHash();
   writeFileSync("public/cv/cv-hash.json", JSON.stringify({ hash }, null, 2) + "\n");
   console.log("cv-hash.json:", hash);
 } finally {
