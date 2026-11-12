@@ -1,5 +1,6 @@
 import type { Locale } from "@/lib/i18n";
 import { contact, site } from "@/content/site";
+import { cvFile } from "@/content/cv";
 import Reveal from "@/components/ui/Reveal";
 import CopyEmail from "./CopyEmail";
 import ReturnToBase from "./ReturnToBase";
@@ -23,6 +24,16 @@ export default function Contact({ locale }: { locale: Locale }) {
         <p className="mt-6 max-w-lg text-[clamp(18px,1.7vw,20px)] leading-relaxed">{c.lead}</p>
         <div className="mt-10">
           <CopyEmail email={contact.email} label={c.copy} doneLabel={c.copied} />
+        </div>
+        <div className="mt-6">
+          <a
+            href={cvFile(locale)}
+            download
+            data-testid="contact-cv"
+            className="label inline-flex items-center gap-3 border border-pared px-5 py-3 text-[13px] text-pared transition-colors hover:bg-pared hover:text-libre"
+          >
+            {site[locale].cv.download} <span aria-hidden>↓</span>
+          </a>
         </div>
         <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3">
           <a href={contact.github} target="_blank" rel="noopener noreferrer" className={link}>

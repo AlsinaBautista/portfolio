@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
 import { contact, site } from "@/content/site";
+import { cvFile } from "@/content/cv";
 import DecodeText from "@/components/ui/DecodeText";
 import Chip from "@/components/ui/Chip";
 import RobotStage from "./RobotStage";
@@ -43,6 +44,9 @@ export default function Hero({ locale }: { locale: Locale }) {
           <Link href={`mailto:${contact.email}`} className={link}>
             {t.mail} <span aria-hidden>→</span>
           </Link>
+          <a href={cvFile(locale)} download className={link} data-testid="hero-cv">
+            {site[locale].cv.short} <span aria-hidden>↓</span>
+          </a>
         </div>
       </div>
     </section>
