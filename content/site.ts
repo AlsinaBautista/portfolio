@@ -153,6 +153,13 @@ const es = {
     onnx: "política exportada a ONNX, corre en cada Edge",
     title: "La IA pide, la capa de seguridad decide",
   },
+  cv: {
+    short: "CV",
+    download: "Descargar CV",
+    downloadPdf: "Descargar PDF",
+    back: "Volver al sitio",
+    meta: "CV de Bautista Tomás Alsina, estudiante de Ingeniería en Inteligencia Artificial en la UdeSA.",
+  },
   tarsDetail: {
     archTopics: "topics oficiales y /jar/ propios",
     mine: "mi parte",
@@ -331,6 +338,13 @@ const en: Site = {
     fallback: "if the model, broker or camera fails: safe fixed cycle",
     onnx: "policy exported to ONNX, runs on each Edge",
     title: "The AI asks, the safety layer decides",
+  },
+  cv: {
+    short: "CV",
+    download: "Download CV",
+    downloadPdf: "Download PDF",
+    back: "Back to the site",
+    meta: "Resume of Bautista Tomás Alsina, an Artificial Intelligence Engineering student at UdeSA.",
   },
   tarsDetail: {
     archTopics: "official and own /jar/ topics",
