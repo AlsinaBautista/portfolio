@@ -86,6 +86,7 @@ const es = {
       place: "Universidad de San Andrés",
       period: "2025 – actualidad",
       note: "2º año",
+      facts: ["Beca Abanderados Argentinos", "Promedio 8,92 / 10 · 6º de 87 en la carrera"],
     },
     experience: {
       title: "Experiencia",
@@ -246,6 +247,7 @@ const en: Site = {
       place: "Universidad de San Andrés",
       period: "2025 – present",
       note: "2nd year",
+      facts: ["Abanderados Argentinos merit scholarship", "GPA 8.92 / 10 · ranked 6th of 87 in the program"],
     },
     experience: {
       title: "Experience",
