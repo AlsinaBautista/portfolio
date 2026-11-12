@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { Locale } from "@/lib/i18n";
 import { cv, type CvEntry } from "@/content/cv";
 
@@ -56,10 +57,12 @@ export default function CvSheet({ locale, hash }: { locale: Locale; hash: string
         <p className="cv-headline">{d.headline}</p>
         <p className="cv-contacts cv-mono">
           {d.contacts.map((c, i) => (
-            <span key={c.label}>
+            <Fragment key={c.label}>
               {i > 0 ? " · " : ""}
-              <a href={c.href}>{c.display}</a>
-            </span>
+              <span>
+                <a href={c.href}>{c.display}</a>
+              </span>
+            </Fragment>
           ))}
         </p>
       </header>

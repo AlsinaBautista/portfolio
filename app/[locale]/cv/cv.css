@@ -40,8 +40,8 @@
 }
 .cv-mono {
   font-family: var(--font-mono);
-  font-size: 7.8pt;
-  letter-spacing: 0.01em;
+  font-size: 7.6pt;
+  letter-spacing: 0;
 }
 .cv-header {
   margin-bottom: 2.6mm;
@@ -67,7 +67,7 @@
   white-space: nowrap;
 }
 .cv-h2 {
-  margin: 3.4mm 0 1.4mm;
+  margin: 3.4mm 0 1.6mm;
   padding-bottom: 0.7mm;
   border-bottom: 0.6pt solid #141615;
   font-family: var(--font-mono);
@@ -81,7 +81,7 @@
 }
 .cv-entry {
   break-inside: avoid;
-  margin-top: 1.5mm;
+  margin-top: 1.6mm;
 }
 .cv-entry:first-of-type {
   margin-top: 0;
