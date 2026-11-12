@@ -78,7 +78,11 @@ const es = {
     tarsReplay: "Replay de la corrida 2",
   },
   about: {
-    bio: "Soy Bautista. Estudio Ingeniería en Inteligencia Artificial en la Universidad de San Andrés. Me interesa la IA que funciona fuera de la pantalla: robots que navegan solos, modelos cuyos errores se pueden medir y herramientas que uso todos los días. En 2026 programé el módulo de misión de TARS, el robot de búsqueda y rescate con el que salimos terceros en el Challenge JAR. Estoy abierto a pasantías para 2027.",
+    bio: [
+      "Soy Bautista y estudio Ingeniería en Inteligencia Artificial en la Universidad de San Andrés. Lo que más me atrae es la robótica: el momento en que un modelo deja de ser un número en la pantalla y tiene que decidir qué hace un robot en un laberinto que nunca vio.",
+      "Aprendo mejor construyendo. Para el Challenge JAR 2026 aprendimos ROS 2 de cero en tres semanas y programé el módulo de misión de TARS, el robot con el que salimos terceros. Por mi cuenta hice Académica, la app con tutor de voz que uso todos los días en la facultad, y el sitio de una parroquia de Buenos Aires, que el personal mantiene sin necesitar un desarrollador.",
+      "Cada proyecto me obliga a aprender algo que no sabía, y esa es la parte que más disfruto. Me gusta entender cómo funcionan las cosas por dentro, medir dónde fallan y volver a intentarlo. Estoy abierto a pasantías para 2027, sobre todo en robótica o IA aplicada.",
+    ],
     timelineTitle: "Trayectoria",
     education: {
       title: "Educación",
@@ -239,7 +243,11 @@ const en: Site = {
     tarsReplay: "Run 2 replay",
   },
   about: {
-    bio: "I'm Bautista, an Artificial Intelligence Engineering student at Universidad de San Andrés. I like AI that works off the screen: robots that navigate on their own, models whose mistakes you can measure, and tools I use every day. In 2026 I wrote the mission module for TARS, the search-and-rescue robot that took our team to 3rd place at the JAR Challenge. I'm open to internships for 2027.",
+    bio: [
+      "I'm Bautista, an Artificial Intelligence Engineering student at Universidad de San Andrés. What draws me most is robotics: the moment a model stops being a number on a screen and has to decide what a robot does in a maze it has never seen.",
+      "I learn best by building. For the 2026 JAR Challenge our team learned ROS 2 from scratch in three weeks, and I wrote the mission module for TARS, the robot that took us to third place. On my own I built Académica, the voice-tutor app I use every day for college, and the website of a parish in Buenos Aires, which the staff keep up to date without needing a developer.",
+      "Every project makes me learn something I didn't know, and that's the part I enjoy most. I like understanding how things work inside, measuring where they fail and trying again. I'm open to internships for 2027, especially in robotics or applied AI.",
+    ],
     timelineTitle: "Timeline",
     education: {
       title: "Education",
